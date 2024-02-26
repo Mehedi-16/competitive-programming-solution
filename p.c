@@ -1,15 +1,32 @@
 #include <stdio.h>
-#include <math.h>
 
 int main() {
-    int t;
-    scanf("%d", &t);
-
-    for (int i = 0; i < t; i++) {
-        int n, x;
-        scanf("%d %d", &n, &x);
-        double sum = (double)n / x; 
-        printf("%.0f\n", ceil(sum));
+    int n;
+    scanf("%d", &n); 
+    char str[101];
+    scanf("%s", str); 
+    
+    int letters[26]; 
+    
+    
+    for (int i = 0; str[i] != '\0'; i++) {
+       
+        if (str[i] >= 65 && str[i] <= 97) {
+            letters[str[i] - 'A'] = 1; 
+        }
+        
+        else if (str[i] >= 'a' && str[i] <= 'z') {
+            letters[str[i] - 'a'] = 1; 
+        }
     }
-
+     
+    for (int i = 0; i < 26; i++) {
+        if (letters[i] == 0) { 
+            printf("NO\n");
+            return 0;
+        }
+    }
+    printf("YES\n"); 
+     return 0;
+    
 }
